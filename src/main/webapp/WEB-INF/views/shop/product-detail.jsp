@@ -214,12 +214,12 @@
                                     <c:choose>
                                         <c:when test="${product.displayImage.startsWith('http://') or product.displayImage.startsWith('https://')}">
                                             <img id="detail-product-img" src="${product.displayImage}"
-                                                 alt="${product.name}" style="max-height: 280px; max-width: 90%; object-fit: contain; transition: transform 0.3s ease;"
+                                                 alt="${product.name}" style="max-height: 280px; object-fit: contain; transition: transform 0.3s ease;"
                                                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                         </c:when>
                                         <c:otherwise>
                                             <img id="detail-product-img" src="${pageContext.request.contextPath}/assets/images/products/${product.displayImage}"
-                                                 alt="${product.name}" style="max-height: 280px; max-width: 90%; object-fit: contain; transition: transform 0.3s ease;"
+                                                 alt="${product.name}" style="max-height: 280px; object-fit: contain; transition: transform 0.3s ease;"
                                                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                         </c:otherwise>
                                     </c:choose>
@@ -393,7 +393,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    const maxQty = ${product != null ? product.quantity : 1};
+    const maxQty = ${product != null ? product.quantity : 1} + 5;
 
     function changeQty(delta) {
         const input = document.getElementById('qty-input');

@@ -119,7 +119,7 @@
                                 <th>Giá Bán (VNĐ)</th>
                                 <th>Tồn Kho</th>
                                 <c:if test="${sessionScope.role == 'ADMIN'}">
-                                    <th class="text-end pe-4" style="width: 200px;">Thao Tác</th>
+                                    <th class="text-end pe-4" style="width: 140px;">Thao Tác</th>
                                 </c:if>
                             </tr>
                         </thead>

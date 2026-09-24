@@ -179,7 +179,7 @@
                                                 </span>
                                             </td>
                                             <td class="text-end fw-bold text-dark fs-6">
-                                                <fmt:formatNumber value="${order.total}" type="number" groupingUsed="true"/> ₫
+                                                <fmt:formatNumber value="${order.total}" type="number" groupingUsed="false"/> ₫
                                             </td>
                                             <td class="text-center">
                                                 <c:choose>

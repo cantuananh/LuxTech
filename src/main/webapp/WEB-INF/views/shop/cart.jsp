@@ -164,7 +164,7 @@
                                                     <input type="hidden" name="productId" value="${item.productId}">
                                                     <input type="hidden" name="color" value="${item.color}">
                                                     <div class="cart-qty-control">
-                                                        <button type="submit" name="quantity" value="${item.quantity - 1}" class="cart-qty-btn" ${item.quantity <= 1 ? 'disabled' : ''}>−</button>
+                                                        <button type="submit" name="quantity" value="${item.quantity - 1}" class="cart-qty-btn" ${item.quantity <= 0 ? 'disabled' : ''}>−</button>
                                                         <input type="text" class="cart-qty-val" value="${item.quantity}" readonly>
                                                         <button type="submit" name="quantity" value="${item.quantity + 1}" class="cart-qty-btn" ${item.quantity >= item.maxStock ? 'disabled' : ''}>+</button>
                                                     </div>
@@ -228,7 +228,7 @@
                                 <small class="text-muted">(Đã bao gồm VAT)</small>
                             </div>
                             <span class="fs-4 fw-bold" style="color:#FF6B00;">
-                                <fmt:formatNumber value="${cart.total}" pattern="#,##0"/> ₫
+                                <fmt:formatNumber value="${cart.total}" pattern="#,##0.00"/> ₫
                             </span>
                         </div>
 

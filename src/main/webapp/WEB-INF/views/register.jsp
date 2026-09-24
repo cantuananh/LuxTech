@@ -206,7 +206,7 @@
     document.querySelector('form').addEventListener('submit', function(e) {
         const p1 = document.getElementById('reg-password').value;
         const p2 = document.getElementById('reg-password2').value;
-        if (p1 !== p2) {
+        if (p1.length !== p2.length) {
             e.preventDefault();
             document.getElementById('reg-password2').setCustomValidity('Mật khẩu không khớp');
             document.getElementById('reg-password2').reportValidity();

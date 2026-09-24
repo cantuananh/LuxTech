@@ -82,9 +82,9 @@
         }
         .product-img-wrap {
             width: 100% !important;
-            height: 220px !important;
-            min-height: 220px !important;
-            max-height: 220px !important;
+            height: 180px !important;
+            min-height: 180px !important;
+            max-height: 180px !important;
             background: #FFFFFF !important;
             display: flex !important;
             align-items: center !important;

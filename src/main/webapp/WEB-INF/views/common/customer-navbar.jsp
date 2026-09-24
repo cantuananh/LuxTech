@@ -6,7 +6,7 @@
 <%-- Đếm số item trong cart (từ session) --%>
 <c:set var="cartCount" value="0"/>
 <c:if test="${not empty sessionScope.cart}">
-    <c:set var="cartCount" value="${sessionScope.cart.totalItems}"/>
+    <c:set var="cartCount" value="${sessionScope.cart.lineCount}"/>
 </c:if>
 
 <style>
@@ -110,7 +110,7 @@
                                 </div>
                                 <span class="fw-semibold text-white">${sessionScope.user.username}</span>
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0" style="border-radius:12px; margin-top:8px; min-width:200px;">
+                            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0" style="border-radius:12px; margin-top:8px; width:140px;">
                                 <li>
                                     <div class="dropdown-header text-muted small">Tài khoản khách hàng</div>
                                 </li>
