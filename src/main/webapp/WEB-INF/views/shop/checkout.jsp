@@ -49,7 +49,7 @@
         .btn-place-order {
             background: #FF6B00; color: #FFFFFF; border: none;
             border-radius: var(--radius-pill); padding: 0.9rem;
-            font-weight: 700; font-size: 1.05rem; width: 100%;
+            font-weight: 700; font-size: 1.05rem; width: 420px;
             transition: all 0.2s ease; box-shadow: 0 4px 14px rgba(255, 107, 0, 0.25);
             display: flex; align-items: center; justify-content: center; gap: 0.5rem;
         }

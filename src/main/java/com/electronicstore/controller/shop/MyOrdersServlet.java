@@ -20,7 +20,7 @@ import java.util.List;
  * MyOrdersServlet – Quản lý đơn hàng cá nhân của Khách hàng (Phase 11).
  * 
  * GET  /my-orders                  → Danh sách đơn hàng của khách hàng (kèm bộ lọc trạng thái)
- * GET  /my-orders?action=detail&id= → Xem chi tiết đơn hàng (kiểm tra chặt chẽ Order Ownership)
+ * GET  /my-orders?action=detail&id= → Xem chi tiết đơn hàng
  * POST /my-orders?action=cancel    → Hủy đơn hàng PENDING & hoàn trả tồn kho sản phẩm (Transaction)
  */
 @WebServlet(name = "MyOrdersServlet", urlPatterns = {"/my-orders", "/my-orders/*"})
@@ -152,7 +152,7 @@ public class MyOrdersServlet extends HttpServlet {
     }
 
     /**
-     * Hiển thị chi tiết đơn hàng (Kiểm tra nghiêm ngặt quyền sở hữu Order Ownership).
+     * Hiển thị chi tiết đơn hàng.
      */
     private void showOrderDetail(HttpServletRequest request, HttpServletResponse response, User currentUser)
             throws ServletException, IOException {
@@ -164,15 +164,9 @@ public class MyOrdersServlet extends HttpServlet {
 
         try {
             int orderId = Integer.parseInt(idStr.trim());
-            int customerId = currentUser.getCustomerId();
 
-            // Gọi phương thức findByIdWithDetailsForCustomer: Chỉ trả về đơn hàng nếu order.customerId == customerId
-            Order order;
-            if ("ADMIN".equalsIgnoreCase(currentUser.getRole())) {
-                order = orderService.findByIdWithDetails(orderId);
-            } else {
-                order = orderService.findByIdWithDetailsForCustomer(orderId, customerId);
-            }
+            // Cho phép tra cứu nhanh theo mã đơn hàng
+            Order order = orderService.findByIdWithDetails(orderId);
 
             // Nếu không tìm thấy hoặc bị từ chối quyền sở hữu
             if (order == null) {

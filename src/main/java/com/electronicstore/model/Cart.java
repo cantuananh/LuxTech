@@ -45,7 +45,7 @@ public class Cart implements Serializable {
      * @return true nếu thêm thành công
      */
     public boolean addItem(Product product, int quantity, String color) {
-        if (product == null || quantity <= 0 || product.getQuantity() <= 0) {
+        if (product == null || product.getQuantity() <= 0) {
             return false;
         }
 
@@ -96,7 +96,7 @@ public class Cart implements Serializable {
             return false;
         }
 
-        if (newQuantity <= 0) {
+        if (newQuantity == 0) {
             return removeItem(productId, color);
         }
 

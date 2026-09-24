@@ -1,0 +1,94 @@
+# Giai đoạn 1 (Bug Hunting) — mỗi đội 1 instance độc lập, cùng seed dữ liệu, cùng lỗi.
+# Dùng: docker compose -f docker-compose.contest.yml up -d --build
+# Mỗi đội truy cập: http://<ip-may-BTC>:808<N>/  (N = 1..6)
+#
+# LƯU Ý QUAN TRỌNG: KHÔNG set biến VNPAY_HASH_SECRET ở đây — đây là chủ đích
+# (xem lỗi #9 trong SECURITY_ANSWER_KEY.md, tài liệu ngoài repo dành cho BTC).
+
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: contest_root_pw
+    volumes:
+      - ./database/schema.sql:/schema-source/schema.sql:ro
+      - ./contest/mysql-init:/docker-entrypoint-initdb.d:ro
+      - contest_mysql_data:/var/lib/mysql
+    ports:
+      - "3399:3306" # chỉ để BTC debug, không cần mở cho học viên
+
+  team1:
+    build: .
+    restart: unless-stopped
+    depends_on: [db]
+    ports: ["8081:8080"]
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: team1_electronic_store
+      DB_USERNAME: root
+      DB_PASSWORD: contest_root_pw
+
+  team2:
+    build: .
+    restart: unless-stopped
+    depends_on: [db]
+    ports: ["8082:8080"]
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: team2_electronic_store
+      DB_USERNAME: root
+      DB_PASSWORD: contest_root_pw
+
+  team3:
+    build: .
+    restart: unless-stopped
+    depends_on: [db]
+    ports: ["8083:8080"]
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: team3_electronic_store
+      DB_USERNAME: root
+      DB_PASSWORD: contest_root_pw
+
+  team4:
+    build: .
+    restart: unless-stopped
+    depends_on: [db]
+    ports: ["8084:8080"]
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: team4_electronic_store
+      DB_USERNAME: root
+      DB_PASSWORD: contest_root_pw
+
+  team5:
+    build: .
+    restart: unless-stopped
+    depends_on: [db]
+    ports: ["8085:8080"]
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: team5_electronic_store
+      DB_USERNAME: root
+      DB_PASSWORD: contest_root_pw
+
+  team6:
+    build: .
+    restart: unless-stopped
+    depends_on: [db]
+    ports: ["8086:8080"]
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: team6_electronic_store
+      DB_USERNAME: root
+      DB_PASSWORD: contest_root_pw
+
+volumes:
+  contest_mysql_data:

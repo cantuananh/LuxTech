@@ -124,7 +124,6 @@ public class CartServlet extends HttpServlet {
         if (quantityParam != null && !quantityParam.trim().isEmpty()) {
             try {
                 quantity = Integer.parseInt(quantityParam.trim());
-                if (quantity < 1) quantity = 1;
             } catch (NumberFormatException e) {
                 quantity = 1;
             }
@@ -210,7 +209,7 @@ public class CartServlet extends HttpServlet {
             }
         }
 
-        if (targetQuantity <= 0) {
+        if (targetQuantity == 0) {
             cart.removeItem(productId, color);
             session.setAttribute("flashSuccess", "Đã xóa sản phẩm khỏi giỏ hàng.");
         } else {

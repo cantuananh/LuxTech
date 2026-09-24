@@ -208,6 +208,10 @@
                 </form>
             </div>
 
+            <c:if test="${not empty keyword}">
+                <p class="text-muted small mb-3">Kết quả tìm kiếm cho từ khóa: "${keyword}"</p>
+            </c:if>
+
             <!-- Products Grid -->
             <c:choose>
                 <c:when test="${not empty products}">

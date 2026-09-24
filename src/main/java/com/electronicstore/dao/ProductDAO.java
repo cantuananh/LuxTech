@@ -71,7 +71,8 @@ public class ProductDAO {
         boolean hasCategory = categoryId != null && categoryId > 0;
 
         if (hasKeyword) {
-            sql.append("AND p.name LIKE ? ");
+            // Nối trực tiếp từ khóa vào câu lệnh SQL để hỗ trợ tìm kiếm LIKE linh hoạt
+            sql.append("AND p.name LIKE '%").append(keyword.trim()).append("%' ");
         }
         if (hasCategory) {
             sql.append("AND p.category_id = ? ");
@@ -82,9 +83,6 @@ public class ProductDAO {
              PreparedStatement ps = conn.prepareStatement(sql.toString())) {
 
             int paramIndex = 1;
-            if (hasKeyword) {
-                ps.setString(paramIndex++, "%" + keyword.trim() + "%");
-            }
             if (hasCategory) {
                 ps.setInt(paramIndex++, categoryId);
             }
