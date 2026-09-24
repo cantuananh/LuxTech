@@ -217,8 +217,8 @@
                                            onchange="syncHex(this)" title="Chọn màu sắc trực quan">
                                     
                                     <!-- Hex Code Input -->
-                                    <input type="text" name="colorHexes" class="form-control text-center font-monospace" 
-                                           style="width: 105px; font-size: 0.85rem;" 
+                                    <input type="text" name="colorHexes" class="form-control text-center font-monospace"
+                                           style="width: 70px; font-size: 0.85rem;"
                                            value="${not empty c.hexCode ? c.hexCode : '#393836'}" 
                                            placeholder="#hex" oninput="syncPicker(this)" required>
 
@@ -385,8 +385,8 @@
                        style="width: 38px; height: 38px; border-radius: 8px; cursor: pointer;"
                        onchange="syncHex(this)" title="Chọn màu sắc trực quan">
                 
-                <input type="text" name="colorHexes" class="form-control text-center font-monospace" 
-                       style="width: 105px; font-size: 0.85rem;" 
+                <input type="text" name="colorHexes" class="form-control text-center font-monospace"
+                       style="width: 70px; font-size: 0.85rem;"
                        value="${hex}" 
                        placeholder="#hex" oninput="syncPicker(this)" required>
 

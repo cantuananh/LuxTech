@@ -82,7 +82,7 @@
             position: absolute;
             top: 20px;
             left: 5%;
-            width: 90%;
+            width: 60%;
             height: 4px;
             background: #e2e8f0;
             z-index: 1;

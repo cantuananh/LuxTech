@@ -56,7 +56,7 @@
         }
         .login-header .brand-icon-box {
             width: 58px;
-            height: 58px;
+            height: 40px;
             background: #FF6B00;
             border-radius: 16px;
             display: inline-flex;

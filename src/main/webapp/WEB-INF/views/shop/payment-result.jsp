@@ -61,7 +61,7 @@
 
         .icon-wrap-success {
             width: 90px;
-            height: 90px;
+            height: 70px;
             border-radius: 50%;
             background: rgba(16, 185, 129, 0.2);
             border: 3px solid #10b981;

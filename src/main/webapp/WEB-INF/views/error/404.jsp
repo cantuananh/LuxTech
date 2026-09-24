@@ -32,7 +32,7 @@
         }
         .icon-circle {
             width: 90px;
-            height: 90px;
+            height: 65px;
             border-radius: 50%;
             background-color: rgba(255, 107, 0, 0.15);
             color: #FF6B00;

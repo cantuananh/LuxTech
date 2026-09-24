@@ -175,7 +175,7 @@
         }
         .empty-orders-icon {
             width: 90px;
-            height: 90px;
+            height: 65px;
             border-radius: 50%;
             background: #fff7f0;
             color: var(--primary);

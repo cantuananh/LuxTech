@@ -34,7 +34,7 @@
         }
         .stat-icon {
             width: 60px;
-            height: 60px;
+            height: 44px;
             border-radius: 14px;
             display: flex;
             align-items: center;

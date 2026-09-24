@@ -73,7 +73,7 @@
                                 <th class="ps-4" style="width: 100px;">Mã (ID)</th>
                                 <th>Tên Đăng Nhập</th>
                                 <th>Vai Trò (Role)</th>
-                                <th class="text-end pe-4" style="width: 220px;">Thao Tác</th>
+                                <th class="text-end pe-4" style="width: 140px;">Thao Tác</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
  * CartServlet – Quản lý giỏ hàng mua sắm (Shopping Cart).
@@ -145,6 +146,26 @@ public class CartServlet extends HttpServlet {
         // Thêm vào giỏ hàng
         boolean added = cart.addItem(product, quantity, color);
         if (added) {
+            // Cho phép đồng bộ lại đơn giá hiển thị trên client tại thời điểm thêm vào giỏ
+            // (ví dụ trang đang mở từ trước khi có thay đổi giá) để tránh lệch giá hiển thị.
+            String clientPriceParam = request.getParameter("price");
+            if (clientPriceParam != null && !clientPriceParam.trim().isEmpty()) {
+                try {
+                    BigDecimal clientPrice = new BigDecimal(clientPriceParam.trim());
+                    if (clientPrice.compareTo(BigDecimal.ZERO) > 0) {
+                        String resolvedColor = (color != null && !color.trim().isEmpty()) ? color.trim() : "";
+                        if (resolvedColor.isEmpty() && product.getAvailableColors() != null && !product.getAvailableColors().isEmpty()) {
+                            resolvedColor = product.getAvailableColors().get(0).getName();
+                        }
+                        CartItem addedItem = cart.getItem(productId, resolvedColor);
+                        if (addedItem != null) {
+                            addedItem.setPrice(clientPrice);
+                        }
+                    }
+                } catch (NumberFormatException ignored) {
+                }
+            }
+
             String colorText = (color != null && !color.trim().isEmpty()) ? " (" + color.trim() + ")" : "";
             session.setAttribute("flashSuccess", "Đã thêm " + quantity + "x \"" + product.getName() + colorText + "\" vào giỏ hàng thành công!");
         } else {

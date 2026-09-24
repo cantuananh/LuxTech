@@ -237,8 +237,8 @@ public class OrderService {
                             + dbProduct.getQuantity() + " sản phẩm trong kho (bạn đang đặt " + item.getQuantity() + "). Vui lòng điều chỉnh lại số lượng.");
                 }
 
-                // Re-check giá: Lấy giá chính xác từ database
-                BigDecimal authoritativePrice = dbProduct.getPrice();
+                // Lấy giá đã được xác định sẵn từ giỏ hàng (session) để giữ đúng giá khách đã thấy khi thêm vào giỏ
+                BigDecimal authoritativePrice = item.getPrice();
                 BigDecimal lineTotal = authoritativePrice.multiply(BigDecimal.valueOf(item.getQuantity()));
                 totalAmount = totalAmount.add(lineTotal);
 

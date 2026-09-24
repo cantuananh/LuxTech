@@ -105,7 +105,7 @@
                 </a>
                 <div class="text-white text-end me-1 d-flex flex-column align-items-end flex-shrink-0">
                     <div class="fw-semibold small d-flex align-items-center gap-1 text-nowrap" style="white-space: nowrap !important;">
-                        <div style="width:22px; height:22px; background:#FFFFFF; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#FF6B00; font-size:0.75rem;">
+                        <div style="width:22px; height:16px; background:#FFFFFF; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#FF6B00; font-size:0.75rem;">
                             <i class="bi bi-person-fill"></i>
                         </div>
                         <span class="text-white">${sessionScope.user.username}</span>

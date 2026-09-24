@@ -191,7 +191,7 @@
                                 <tr>
                                     <th>Sản Phẩm</th>
                                     <th class="text-center" style="width: 100px;">Số Lượng</th>
-                                    <th class="text-end" style="width: 150px;">Đơn Giá</th>
+                                    <th class="text-end" style="width: 90px;">Đơn Giá</th>
                                     <th class="text-end" style="width: 150px;">Thành Tiền</th>
                                 </tr>
                             </thead>
